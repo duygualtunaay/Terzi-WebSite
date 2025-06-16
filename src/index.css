@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+  }
+
+  /* Dark mode scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-emerald-500 dark:bg-emerald-600 rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-emerald-600 dark:bg-emerald-500;
+  }
+}
+
+@layer components {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-white/20 dark:border-gray-700/20;
+  }
+
+  .glow-emerald {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+
+  .glow-blue {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  .glow-fuchsia {
+    box-shadow: 0 0 20px rgba(217, 70, 239, 0.3);
+  }
+
+  .text-gradient-emerald {
+    @apply bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-fuchsia {
+    @apply bg-gradient-to-r from-fuchsia-600 to-pink-600 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .text-shadow-dark {
+    text-shadow: 0 2px 4px rgba(255,255,255,0.1);
+  }
+}
+
+/* Enhanced transitions for all interactive elements */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.6s ease-out;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s ease-out;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Dark mode specific styles */
+.dark {
+  color-scheme: dark;
+}
+
+/* Textile pattern background */
+.textile-bg {
+  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23000" fill-opacity="0.05"%3E%3Ccircle cx="20" cy="20" r="2"/%3E%3Cpath d="M0 20h40M20 0v40" stroke="%23000" stroke-width="0.5" stroke-opacity="0.1"/%3E%3C/g%3E%3C/svg%3E');
+}
+
+.dark .textile-bg {
+  background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23fff" fill-opacity="0.05"%3E%3Ccircle cx="20" cy="20" r="2"/%3E%3Cpath d="M0 20h40M20 0v40" stroke="%23fff" stroke-width="0.5" stroke-opacity="0.1"/%3E%3C/g%3E%3C/svg%3E');
+}
